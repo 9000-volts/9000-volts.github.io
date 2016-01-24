@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<title>+_+</title>
+		<style>
+		* { box-sizing: border-box; }
+		body {
+			margin: 3em;
+			color: #444;
+			font-family: sans-serif;
+		}
+		#cvas {
+			background: #222;
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AEYFQ0qBqUx4gAAAHlJREFUSMft1TsOwCAMA1A7yl24/85FmDlIOtGh7dKA+pHsJQgJ3hLJrLUGkimlZJ/C8FIECxYs+IcwSZAEgH0+ET+iY0acu+PqLhOScHcHSUTEPgcwzqvAgZoZ2HtP/9pa01YLFixY8MfhmUr1leidSvUsamaYqdQNVzk6TgeTE64AAAAASUVORK5CYII=);
+			display: block;
+			margin: 1em auto;
+		}
+		a { color: #35f; }
+		</style>
+	</head>
+	<body>
+		<h1>Meme Text Generator</h1>
+		This generates meme-style text on a transparent background!
+		By <a href="http://9kv.cu.cc">9000 volts</a>!
+		<canvas id="cvas" width="900" height="90"></canvas>
+		<b>Input:</b>
+		<input type="text" id="input" value="Here's The Output">
+		<button id="download">Download</button>
+		<script>
+		var cv = document.querySelector("#cvas"),
+			ctx = cv.getContext("2d"),
+			input = document.querySelector("#input");
+		ctx.font = '60px Impact';
+		ctx.fillStyle = '#fff';
+		ctx.lineWidth = 2;
+		ctx.textAlign = 'center';
+		var render = function () {
+			ctx.clearRect(0,0,900,90);
+			ctx.fillText(input.value, 450, 68);
+			ctx.strokeText(input.value, 450, 68);
+		}
+		input.onkeydown = input.onkeyup = input.onkeypress = render;
+		render();
+		document.querySelector("#download").onclick =
+			function () {window.open(cv.toDataURL()); };
+		</script>
+	</body>
+</html>
