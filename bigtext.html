@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Big Text</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        font-family: sans-serif;
+        padding: 2em;
+        color: #222;
+        background: #f8f8f8;
+        font-size: 2em;
+      }
+      #output {
+        display: none;
+        font-size: 5em;
+      }
+      .show #output { display: block; }
+      .show #input { display: none; }
+      input, button {
+        padding: 1em;
+        border-radius: 0.5ex;
+        border: 1px solid #222;
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="input">
+      <input type="text" placeholder="Text to Display" id="text">
+      <button id="show">Show Text</button>
+    </div>
+    <div id="output">
+    </div>
+    <script>
+      document.querySelector("#show").onclick = function () {
+        document.querySelector("#output").innerHTML = document.querySelector("#text").value
+        document.body.classList.add("show")
+      }
+    </script>
+  </body>
+</html>
